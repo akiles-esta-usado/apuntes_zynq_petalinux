@@ -1,0 +1,123 @@
+https://www.youtube.com/watch?v=zD-5LQCOelI
+
+0'00	overview del video
+
+0'54	Performance per Watt
+
+		1'35	Realizar más operaciones usando menos energía
+		1'47	propone el uso de unidades especializadas, aceleradores
+
+			revisar un problema y la factivilidad de acelerar partes distintas de la tarea al usar unidades especializadas
+
+		Hardware Acceleration
+
+		2'35	Hardware 'normal'
+		3'10	Aparicion de los aceleradores
+		3'45	Problemas, no todo es tan simple
+			3'57	Mantener la coherencia entre las variables almacenadas en las distintas memorias
+			4'44	Como direcionar a variables dentro de la CPU
+					MMU = Memory Management Unit
+					Solucionar el problema de las direcciones virtuales
+					Los aceleradores usan direcciones físicas
+					Hay algo con las estructuras de datos complejas
+
+6'30	Plataforma de Computación Homogenea
+		Todos los elementos de procesamiento de la arquitectura son del mísmo tipo
+		Intel SCC
+			24 Processing Tiles de 2 Intel Pentium c/u
+
+7'29	Plataforma de Computación Heterogenea
+		TI Keystone II
+			4 nucleos ARM A15
+			8  nucleos DSP
+
+8'57	FPGA vs CPU
+
+		FPGA son útiles
+			* un flujo de datos considerablemente grande que entra y sale
+				realizar la fft en esos datos
+			* Algoritmos masivamente en paralelo
+
+		10'06	CPU
+			* Cuando el procesamiento de los datos depende de los datos anteriores
+				loops, condicionales,
+				Data driven
+
+11'20	FPGA + CPU
+		Hay casos en que se requieren las dos funcionalidades en paralelo
+
+		Soluciones y problemas
+		12'00	Implementar CPU en Hardware de FPGA
+				1. Se pierden montontes de recursos de la fpga
+				2. no da alta performance
+
+		13'06	Juntar una CPU y FPGA en una pcb
+				Los datos se compartiran cuando sea necesario
+				1. Latencia de comunicación
+				2. no dicen más, pero hay muchos problemas, no creas que no
+
+		13'48	Añadir una CPU como bloque funcional de la FPGA
+				Virtex 4, 5 y 6 con su PowerPC
+				Zynq con su ARM
+				* No consume recursos configurables de la PFGA
+				* La cpu puede alcanzar altas frecuencias
+
+		15'08	cacha este error de edición xDDD
+
+15'15	Arquitectura Zynq
+		Se divide en 2 partes:
+			PL Programable Logic, la fpga
+
+			PS: Programable System, subsistema ARM
+
+		16'00	Subsistema ARM (PS)
+				2 Nucleos ARM Cortex A9 con su respectiva cache L1
+				Caché Compartida L2 (512 Kilobytes)
+				Snoop Control Unit
+					Mantiene la coherencia entre el contenido de caché L1 y L2
+
+		17'56	Periféricos (PS)
+				Controlador de RAM DDR3
+
+				UART, USB, Interfaz de red, SD, GPIO,
+
+				Controlador interno DMA (ARM pl330)
+
+				Interconnect (ARM NIC-301)
+
+				On-Chip-Memory (256 KB)
+
+		18'39	Interfaces AXI
+				permite la comunicación entre PS y PL
+
+				19'04	Interfaces esclavas de alto rendimiento	(HP)
+					son 4, al parecer solo mueven datos de PL a PS
+					sus interfaces maestras se desarrollan en la FPGA
+
+				19'43	Interfaces esclavas (MGP)
+					son 2, no me queda claro como funcionan
+					Estas se comunican con la CPU
+					estas, parece, que se desarrollan en la PL y se conectan a los puertos MGP0 o MGP1
+					Esos puertos son direccionables por la CPU y pueden ser leidos o escritos
+
+				20'43	Accelerator Coherency Port
+					aquí los axi masters de la PL pueden leer y escribir en el espacio de memoria de la CPU
+					se conecta al Snoop Control Unit
+
+					21'05 es un puerto esclavo, las transacciones hechas a este puerto estan en coherencia con las cachés
+					de las CPU
+
+21'26	Acceso Coherente (ACP)
+
+25'00	Aquí comienzan costos y modelos, no importa mucho
+
+32'02	Resumen de la Arquitectura de Zynq
+
+
+
+
+
+
+
+
+

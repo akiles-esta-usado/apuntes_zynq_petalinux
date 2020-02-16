@@ -1,0 +1,182 @@
+Voy a tratar de no darle importancia a la Zedboard, solo la zynq
+
+0'10	Indice
+
+1'06	Introduction
+		1'06	Zynq 7000 SoC
+				La zynq combina un procesador ARM con una FPGA
+				El objetivo es que un solo chip pueda implementar la funcionalidad de todo un sistema,en vez de requerir
+				varios chips individuales, Esa es la idea del SoC
+				Es mejor un SoC que un sistema equivalente pero con elementos discretos
+
+				2'56	Ventajas del SoC
+
+				ARM: Provee un procesador para aplicaciones, permite correr sistemas operativos como linux
+				FPGA: entrega un dispositivo que puede configurarse para implementar varios sistemas
+
+		2'46	Vistazo de la placa ZedBoard
+
+				3'20	Descripción Supersimplificada de la arquitectura
+						la familia Zynq 7000 se basa en la arquitectura All Programmable SoC
+						Estos productos integran un sistema ARM Cortex A9 (PS)
+						Y lógica programable Xilinx de 28nm (PL)
+						Todo en un solo dispositivo
+
+		3'52	Modelo simplificado de la Arquitectura (El audio baja considerablemente)
+
+				PS
+					corresponde al hardware requerido para correr un procesador dual-core Cortex A9
+					soporta programas y sistemas operativos
+					tiene una arquitectura definida,
+
+				PL
+					equivalente a la FPGA
+					ideal para implementar lógica de alta velocidad, sistemas de flujo de datos
+					completamente flexible, puede usarse para crear periféricos personalizados o estandar
+
+				La comunicación entre PS y PL ocurre mediante conexiones Advance Extensible Interface (AXI)
+
+				la comunicación entre los elementos del sistema se realiza con Interconections
+					punto a punto
+					buses
+
+				Perifericos: componentes funcionales, realizan 3 tareas principales
+					coprocesadores, suplen una tarea de forma optimizada
+					interactuar con exterior, switches y leds
+					memorias
+
+				5'20
+					existe una gran variedad de propiedad intelectual standard, evitando tener que rediseñar todo
+
+					PS y PL pueden actuar independientemente, se puede mantener una encendida y la otra no
+
+				5'43	Microblaze
+					este procesador suele usarse para tareas menos demandantes, y así optimizar el uso de la CPU
+
+
+6'12	Processing System PS (el volumen de audio sube abruptamente)
+
+		El PS no es solo el procesador ARM, comprende también los recursos necesarios para formar una Application Processing
+		Unit (APU)
+			Periféricos
+			Cache
+			Interfaces de memoria
+			Interconnect
+			Circuitería del relog
+
+		6'41	Application Processing Unit APU
+				* Procesador Dual-Core ARM-Cortex A9 con reloj de hasta 1 GHz
+
+				* Neon Processing Engine NPI
+
+				* Floating Point Unit FPU
+
+				* Memory Management Unit MMU
+
+				* Caché L1 y L2 (32 y 512 KB, instrucciones y datos)
+
+				* On-Chip-Memory OCM de 256 KB
+					Sirve para traducir direcciones físicas y virtuales
+
+				* Snoop Control Unit SCU
+					forma un puente entre los nucleos ARM, cache L2 y algunas interfaces con la PL
+
+
+				7'36	Snoop Control Unit en detalle
+					Uno de los mecanismos para asegurar la coherencia de la caché
+					especificamente, entre la caché L1(D) y la L2 compartida
+
+					Maneja las transacciones entre PS y PL por el puerto ACP (No se muestra en el diagrama)
+
+		8'21	Neon Engine
+				Periferico con arquitectura tipo Single Instruction Multiple Data SIMD
+
+				acelera el procesamiento de imagen, video y algoritmos de DSP
+
+		9'40	Interfaces Externas
+				El PS y las interfaces al exterior se comunican (principalmente) con el Multiplexed I/O MIO
+				otorga 54 pines de conectividad flexible
+
+
+				* SPI
+				* I2C
+				* CAN
+				* UART
+				* GPIO
+				* SD, USB, Ethernet
+
+
+11'12	Programmable Logic PL
+		A esta parte no le puse mucho empeño, ya que no entiendo todo lo que mencionan
+
+		11'51	Logic Fabric
+				11'53	Configurable Logic Block CLB
+
+				12'09	Slice
+				12'23	LUT	Lookup Table
+				12'43	FF	Flip Flop
+				12'53	Switch Matrix
+				13'05	Carry Logic
+				13'20	IOBS	I/O Blocks
+
+				13'39	Block RAMS
+
+				14'09	DPS 48E1
+
+		14'48	GPIO
+
+		15'41	Interfaces de Comunicación
+				PCI Express
+				Serial RapidIO
+				SCSI
+				SATA
+
+		16'14	Otras Interfaces Externas
+				ADC
+				Clock
+				Programming and Debug
+
+
+
+17'30	Estándar Advance Extensible Interface AXI
+
+		Es la conexión entre PS y PL
+
+		la versión actual es la 4 y es parte del estandar ARM AMBA
+
+		Existen varios 'sabores' de AXI
+
+		AXI4
+
+		AXI4-Lite
+
+		AXI4-Stream
+
+		18'52	Interfaces entre PS y PL
+
+				* 9 Interfaces AXI de PS y PL
+
+				* Interconnect
+
+				* Interface
+
+				* AXI de proposito general
+
+				* Accelerator Coherency Port
+
+				* High Performance Ports
+
+
+		20'33	Interfaces EMIO
+
+
+21'33	Áreas de Aplicación
+
+22'11	Visión general de la familia
+
+22'47	Resumen
+
+
+# Notas del escritor
+
+IP Blocks: Intelectual Property Blocks,

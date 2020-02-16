@@ -1,0 +1,9 @@
+**/videos
+**/video
+
+*.zip
+*.img
+*.bsp
+
+pynq/.git
+pynq/PYNQ_Workshop

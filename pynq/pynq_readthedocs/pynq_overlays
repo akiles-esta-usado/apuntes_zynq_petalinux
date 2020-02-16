@@ -1,0 +1,22 @@
+overlays: superposiciones, capa sobrepuesta
+
+Los dispositivos Zynq está compuesto de 2 partes principales
+- Processing System PS
+	una CPU ARM junto a los periféricos como memoria, UART, USB, IIC, etc
+
+- Programmable Logic PL
+	la FPGA
+
+El PS puede extenderse al implementarse 'Intelecual Property' Hardware en la PL
+mediante PL Overlays
+
+## Entonces, ¿Qué es?
+Un Overlay es una biblioteca de bajo nivel que
+
+
+
+
+
+# Dudas que produje al leer todo esto
+
+Es posible modificar el PL dinámicamente? utilizando alguna función de Python que carque un diagrama guardado en memoria
