@@ -1,0 +1,48 @@
+Aquí resumiré que hice para correr la PYNQ. Seguí el tutorial que resumí en getting_started
+
+1. Descargue, y descomprimí la imagen del SO de la placa
+
+2. Para cargar la sd usé el tutorial de writting_sd que anoté
+    usé el comando dd que indica el tutorial, demoró 13 minutos
+
+4. conecte la PYNQ con cables LAN y USB al pc, verifiqué los jumpers, encendí y esperé a que las luces se encendieran
+
+5. Cambié mi dirección IP a 192.168.2.1 y mascara 24, me conecté con mi navegador web a http://192.168.2.99:9090 y me
+autentiqué en jupyther notebook (passwd = xilinx)
+
+6. Para conectarme por serial ocupé los comandos
+    sudo chmod 777 /dev/ttyUSB1
+    cu -l /dev/ttyUSB1 -f -s 115200 --parity=none
+
+    Al presionar la tecla enter apareció la terminal inmediatamente
+
+    Para desconectarse solo hay que presionar
+        ~.
+    es un comando de 'cu', por lo que no necesariamente servirá en putty o otra terminal
+
+7. Conexión mediante SSH
+    Teniendo la dirección ip dentro de la red de PYNQ, ejecuté el siguiente comando
+    $ ssh xilinx@192.168.2.99
+
+    la contraseña era xilinx
+
+
+# Problemas ocurridos
+
+en el paso 2 durante mucho tiempo no logré cargar el sistema operativo en la SD, yo tuve 2 problemas
+1. La tarjeta estaba mal conectada
+    * inserté la tarjeta y no era leida
+    solución: insertar más a fondo
+
+2. el adaptador microSD estaba en modo readonly
+    * no era posible modificar la tarjeta, tampoco formatear. solo leer
+
+    posibles causas:
+        - la tarjeta llegó al fin de su vida útil, no era el caso
+            de haber sido así, no habría nada que hacer más que comprar otra
+
+        - la tarjeta se montó en modo de solo lectura, no era el caso, pero de haber sido así este comando lo solucionaría
+            mount --options remount,rw /media/<user>/<partition_name>
+
+        - El adaptador microSD está en modo readonly, este era el problema
+            El dibujo que indica el modo no es claro, en writting_sdcard.txt explico como identificarlo

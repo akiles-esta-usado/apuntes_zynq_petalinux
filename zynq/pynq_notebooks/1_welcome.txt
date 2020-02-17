@@ -1,0 +1,22 @@
+Revisar directorios
+
+* Getting Started
+    introducción a Jupyter y PYNQ
+    características básicas de la plataforma
+
+* Common
+    Como obtener overlays
+    setear el clock
+    ejecutar comandos linux
+    usar dispositivos USB
+
+# Enlaces:
+http://pynq.readthedocs.io/
+    Documentación Oficial, de aquí saqué varios apuntes
+
+http://www.pynq.io/
+    Página del framework PYNQ, recuerda que solo es un OS para la placa, no la placa
+
+https://github.com/Xilinx/PYNQ
+    de aquí se pueden obtener los BSP para PetaLinux :)
+

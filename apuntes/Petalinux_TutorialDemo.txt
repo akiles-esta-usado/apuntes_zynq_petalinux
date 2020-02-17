@@ -1,0 +1,23 @@
+# Que son las herramientas de PetaLinux
+
+Es un framework utilizado para desarrollar distribuciones linux para los SoC con FPGA de Xilinx
+
+Se basa en Yocto Project. Xilinx desarrolló layers base para los proyectos PetaLinux (Xilinx Yocto Layers), además que abstrae de las complejidades de Yocto.
+
+Contiene varias herramientas de Xilinx, como XSCT
+
+# Descargar e instalar
+
+https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html
+
+Desgargué el BSPzc702 siendo que el mio es 7020, solo revisaré los directorios
+
+
+
+
+
+
+# Apéndice
+## Qué es XSCT
+Xilinx Software Command Tool es una herramienta de linea de comandos, permite realizar scripts que realicen funciones comúnes o tareas extensas
+Permite crear y manejar distintos proyectos de aplicación o BSP, manejo de repositorios, flasheo de dispositivos, entre otras cosas

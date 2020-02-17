@@ -1,0 +1,148 @@
+# vim:foldmethod=marker
+
+# Links PetaLinux {{{
+
+Documentación sobre instalación, estructura, generación de BSP en formato pdf
+https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0016-petalinux-tools-hub.html
+
+Herramientas y su documentación
+https://www.xilinx.com/content/xilinx/en/products/design-tools/embedded-software/petalinux-sdk.html
+
+Documentación en Atlassian
+https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842250/PetaLinux
+https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841618/PetaLinux+Getting+Started
+
+
+Recomendados por profesor Gonzalo
+https://www.hackster.io/news/microzed-chronicles-building-petalinux-with-no-bsp-11a9c74946f8
+https://www.hackster.io/catalin-bitire/zybo-autonomous-car-2d343d
+https://www.instructables.com/id/Getting-Started-With-PetaLinux/
+
+esto lo saqué cuando descargue PetaLinux
+https://www.xilinx.com/search/support-keyword-search.html#q=PetaLinux%20Tools%20Documentation
+
+Errores conocidos y Notas de actualizacion
+https://www.xilinx.com/support/answers/72950.html
+
+Documentación Oficial de PetaLinux
+https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html
+
+# }}}
+
+# Links Zynq y Pynq {{{
+
+## Zynq 7000 {{{
+
+Documentación de Atlassian
+https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/189268127/Zynq-7000+Articles
+
+Documentación del estandar ARM AMBA
+https://www.arm.com/products/silicon-ip-system/embedded-system-design/amba-specifications
+
+Configurar los pines de MIO
+https://www.realdigital.org/doc/4b3000d07f821a225e90486b4ea33815
+
+Arquitectura de las APSoC Zynq 7000
+https://www.youtube.com/watch?v=ae21m7bsaVw
+
+All About Circuits - Zynq 7000 SoC
+https://www.youtube.com/watch?v=ReK8b9fWh1I
+
+Arquitectura de las APSoC Zynq 7000
+https://www.youtube.com/watch?v=ae21m7bsaVw
+
+Xilinx - Zynq 7000 Programmable SoC
+https://www.youtube.com/playlist?list=PLRr5m7hDN9TJLuHOClahoS8lb6-dxjEST
+
+Xilinx - Zynq UltraScale+ MPSoCs
+https://www.youtube.com/playlist?list=PLRr5m7hDN9TJT0pDvIltdBRzaYKwEizAY
+
+Xilinx - Zynq UltraScale+ RFSoCs
+https://www.youtube.com/playlist?list=PLRr5m7hDN9TITtmzEbAsEzc75CZENjBHs
+
+Mohammadsadegh Sadri - ZYNQ Training
+https://www.youtube.com/playlist?list=PLLAhvA_pexcxXi9BDwja4Bd9t2aVeVPkK
+https://www.youtube.com/playlist?list=PLUzCVTnytgRfGjBkaNbDF7KL_Z8nmUcvz
+    Es posible que hayan videos faltantes, Sadri no sabe hacer listas de reproducción y otros tipos las administran
+    ver a 1.25 o 1.5, habla muy lento
+
+Microelectronic Systems Design Research Group - Zynq
+https://www.youtube.com/playlist?list=PL4D6H9w4Ihdp0YRExoQXfbVMRL1GgEPCm
+
+The Development Channel - Zynq Training
+https://www.youtube.com/playlist?list=PLo7bVbJhQ6qyAc5-z6CtWhZAiFk2GkZD8
+
+# }}}
+
+## Pynq Z1 {{{
+
+Data sheets de la placa PYNQ Z1
+https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html#documentation
+
+Algo de GitHub, no se si sirva, tiene un dir que dice petalinux
+https://github.com/Xilinx/PYNQ/tree/master/boards/Pynq-Z1
+
+VHDL y FPGA en español - Tutorial básico de la Pynq
+https://www.youtube.com/watch?v=ahv_yZXa_oQ
+
+# }}}
+
+# }}}
+
+# Programación de FPGA {{{
+
+Glosario de FPGAs
+https://blog.digilentinc.com/fpga-for-beginners-glossary-and-setup/
+
+The Development Channel - Curso de FPGA
+https://www.youtube.com/playlist?list=PLo7bVbJhQ6qxesicBHQwSl4nYOMJO2CHw
+
+# Vivado {{{
+
+Diseño con Vivado
+https://www.xilinx.com/support/university/vivado/vivado-teaching-material/hdl-design.html
+
+Augmented Startups - Vivado Tutorials
+https://www.youtube.com/playlist?list=PL_Nji0JOuXg0_N0ba-pGABeabXdcfQYtJ
+
+# }}}
+
+# }}}
+
+# Contenido teórico y práctico asociado {{{
+
+The Development Channel - Linux embebido con FPGA
+https://www.youtube.com/playlist?list=PLo7bVbJhQ6qxRyrF7CSW3wXcbmmFl9z7-
+
+The Development Channel - Depuración Inversa
+https://www.youtube.com/watch?v=PGjx-wD7Dqk
+
+Microelectronic Systems Design Research Group - FPGA Hardware Accelerators y Sistemas Híbridos
+https://www.youtube.com/playlist?list=PL4D6H9w4Ihdr46oJnOllwLjnCc2idWTYB
+
+# }}}
+
+# Canales interesantes de Youtube {{{
+
+The Development Channel
+https://www.youtube.com/channel/UC1ptV25-NEHRIEnM1kXMCrQ/
+
+Microelectronic Systems Design Research Group
+https://www.youtube.com/user/EMSUNIKL/
+
+VHDL y FPGA en español
+https://www.youtube.com/channel/UC-lhMjbVpD8sQRdh4F6NRhA/
+
+Augmented Startups
+https://www.youtube.com/channel/UCFJPdVHPZOYhSyxmX_C_Pew
+
+All About Circuits
+https://www.youtube.com/channel/UCYTq2bhe5pim45pAEU-gDjw
+
+Mohammadsadegh Sadri
+https://www.youtube.com/user/mamsadegh2/
+
+Xilinx
+https://www.youtube.com/user/XilinxInc/
+
+# }}}

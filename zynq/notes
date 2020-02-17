@@ -1,0 +1,20 @@
+#Que es pynq
+
+Proyecto OpenSource de Xilinx que facilita el diseño de sistemas embebidos en las pataformas Zynq System on Chip
+
+
+# A quién le puede servir
+
+- Desarrolladores de Software que quieran trabajar con Zynq pero sin el diseño de hardware
+- Arquitectos de sistemas que quieran una plataforma de prototipado rápida
+- ociosos
+
+# Datos Técnicos
+
+Nosotros tenemos la PYNQ Z1 de Digilent
+
+Zynq Z7020
+http://www.pynq.io/board.html
+
+# Links
+https://pynq.readthedocs.io/en/latest/

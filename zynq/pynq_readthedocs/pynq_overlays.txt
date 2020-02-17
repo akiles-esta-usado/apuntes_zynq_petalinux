@@ -1,0 +1,27 @@
+# Introducción
+
+    Los dispositivos Zynq está compuesto de 2 partes principales
+    - Processing System PS
+    El sistema que permite ejecutar un procesador DualCore ARM Cortex A9
+
+    - Programmable Logic PL
+    la FPGA
+    sirve para extender el PS utilizando hardware IP (Intelectual Property)
+
+
+# Overlays
+    Es una biblioteca de bajo nivel que permiten extender la aplicación de 2 formas
+    * sirviendo de hardware accelerator
+    * generando un periférico que no se encuentra por defecto
+
+    esto es algo genérico, cualquier SoC con FPGA cumple esos roles, la diferencia radica en que uno puede modificar
+    dinámicamente el hardware que hay en la PL cuando sea requerido
+
+    PYNQ provee a Python de una interfaz para controlar los overlays
+
+    Los diseñadores de FPGA son quienes crean los overlays que luego deben ser cubiertos por una API de la biblioteca pynq
+    de python
+
+# Notas
+
+    overlays: superposiciones, capa sobrepuesta

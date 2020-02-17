@@ -1,0 +1,136 @@
+https://pynq.readthedocs.io/en/latest/getting_started.html
+
+# Video
+
+### Preparar la SD                  0:43
+    1. Descargar la ISO
+        http://www.pynq.io/board.html
+        En mi caso, tengo la PYNQ-Z1
+
+    2. Escribirla en la SD (Cualquier programa debería servir)
+        En windows se recomienda Win32 Disk Imager, Pero yo prefiero Etcher
+        Si se usa Linux o Mac, utilizar 'dd', los pasos están en la documentacion
+        Se recomienda que tenga, al menos, 8 GB de espacio
+
+### Ajustar los Jumpers             1:44
+    Def: Jumper es un elemento que hace cortocircuito, en este caso, son aparatitos
+         negros que unen 2 pines adjacentes
+
+    1. Ajustar el jumper de potencia (pines JP5) dependiendo del modo de carga
+        USB:
+            es el uso recomendado, útil para casi todo
+
+        Regulador externo: REG
+            usado cuando hay mucho consumo de corriente y usb no puede proveerlo
+
+    2. (2:28) Ajustar el jumper de modo de booteo (JP4) a SD
+        Las otras opciones son JTAG y QSPI
+
+### MicroSD, USB, Ethernet          2:39
+    1. Insertar la SD
+    2. Conectar microUSB o el adaptador de corriente, solo uno de los dos y ajustando el modo de uso
+
+    2a. Si se da energia via adaptador (3:06)
+        - la placa trabaja entre 7 y 15 V, se recomienda usar 12V
+        - el conector debe ser un barrel jack de 2.1mm con centro positivo
+
+    2b. Si se da energia via microUSB  (3:25)
+        - el usb se puede usar para conectarse via terminal
+        - para el primer uso se recomienda trabajar con usb
+        - puede conectarse a un computador, a un cargador usb o a una batería
+        - si se utiliza una laptop, verificar que el puerto no este en modo bajo consumo
+        - se nombra como puerto PROG-UART J14
+
+    3. Conectar cable Ethernet
+
+### Conectando a la placa a la red  4:07
+
+    Si se conecta la placa a un router, esta puede obtener una IP y permitir la conexión por una red.
+        (SUPOSICIÓN) la placa tomará una dirección IP via DHCP
+
+    (4:54) La placa puede conectarse via Ethernet directamente al computador, aunque no tendrá conexión a interet
+    En este caso, habrá que darle una dirección IP estática a nuestra pc para que esté en la misma red de la placa
+        - la placa toma como dirección ip: 192.168.2.99 con submáscara 24, cualquier dirección que este en la red es válida
+          ej: 192.168.2.1
+        - lo de la submáscara indica que los primeros 24 bits definen la red, es decir, todos los equipos que tengan dirección ip
+          192.168.2.XXX estarán en la misma red de la placa y podrán comunicarse con ella
+
+    (5:28) Tutorial para windows
+
+### Encendiendo la Placa            6:06
+
+    1. Encender la placa moviendo el switch de energia a 'on'
+
+    2. Un led rojo debería encenderse (LD13)
+        sino, habrá que revisar las conexiones y los jumpers
+
+    3. Luego de un rato, Se encenderá un led verde o amarillo (LD12)
+        indica que el proceso de booteo esta funcionando
+        sino, checkea los jumpers y la SD
+
+    4. Cuando el proceso de encendido termina:
+        - los leds de colores son azules (LD4-5)
+        - los leds de usuario se encienden (LD0-3)
+
+        aquí uno puede conectarse a Jupyter Notebook
+
+### Conectando a Jupyter y Samba    7:04
+    1. Abrir el Browser
+        internet explorer no es soportado
+
+    2a. Si la placa se conecta al router, conectarse con la url: http://pynq:9090
+    2b. Si la placa se conecta al computador, conectarse con la ip que la placa toma por defecto: http://192.168.2.99:9090
+
+        - el puerto TCP de la placa es el mismo
+        - En ambos casos el usuario y contraseña es: xilinx
+
+    2. Usando Samba (8:01)
+        - Samba es un protocolo que permite compartir archivos via red local
+        - (windows)     anotar en el explorador de archivos: \\pynq
+        - (unix-based)  anotar en el explorador de archivos: smb://pynq/xilinx
+        - (otros)       revisa en la documentacion
+        - por defecto el usuario y contraseña es: xilinx
+
+
+
+### Conectando a una Terminal       8:27
+
+    1a. Abrir terminal usando Jupyter
+        - seleccionar 'nuevo' o 'new' y abrir una terminal
+
+    1b. Abrir terminal por USB usando un emulador de terminal (PuTTY) (9:30)
+        - util si cambias el hostname y se te olvida
+        datos de conexión:
+            - 115200 baudios
+            - 8 bata bits
+            - 1 stop bit
+            - No parity
+            - No flow control
+
+        (WINDOWS)
+            obtener el puerto COM
+            device manager -> Ports -> USB Serial Port -> (Ej) COM7
+
+        conectado por este medio, se activa una terminal linux
+        verifica el hostname
+        $ hostname
+
+
+    2. Cambiar el hostname (8:40)
+        esto es necesario si hay más PYNQ conectadas a la red
+
+        $ hostname.sh new_name
+            el script puede llamarse pynq_hostname.sh
+
+        $ shutdown -r now
+
+        Ahora al reconectarse habrá que utilizar el nombre nuevo
+
+    3. Revisar configuración de la red (9:13)
+        $ ifconfig
+            - eth0 indica dirección dinámica
+                entregada por el DHCP
+            - eth0:0 indica dirección IP estática
+                seteada por defecto, puede modificarse
+
+
